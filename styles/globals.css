@@ -56,3 +56,15 @@ body {
   }
 
 }
+
+/* Swiper Styling */
+.swiper-button-prev::after {
+  color: #F2F3F9
+}
+.swiper-button-next::after {
+  color: #F2F3F9
+}
+
+.swiper-pagination-bullet {
+  background: #F2F3F9 !important;
+}
