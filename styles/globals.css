@@ -2,9 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  /* cursor: none; */
+}
+
 body {
   background: #0C0C13;
 }
+
+.cursor {
+  width: 12px;
+  height: 12px;
+  border-radius:  50%;
+  position: absolute;
+  z-index: 100;
+  background-color: #00E0AC;
+  pointer-events: none;
+}
+
+.cursor-outline {
+  width: 16px;
+  height: 16px;
+  border-radius:  50%;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;
+  border: 1px solid #00C899;
+  transition-duration: .3s;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+}
+
 
 @layer base {
   h1 {
