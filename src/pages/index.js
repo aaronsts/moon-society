@@ -1,12 +1,20 @@
-import { Artists, Banner, Header, StyleGuide, Cursor } from "../components";
+import {
+  Artists,
+  Banner,
+  Header,
+  StyleGuide,
+  Cursor,
+  Services,
+} from "../components";
 
 export default function Home() {
   return (
     <>
-      <Cursor />
+      {/* <Cursor /> */}
       <Header />
       <Banner />
       <Artists />
+      <Services />
     </>
   );
 }

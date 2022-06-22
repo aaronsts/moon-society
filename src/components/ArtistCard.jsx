@@ -1,18 +1,11 @@
-import React from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
-import { useState } from "react";
-
-// icons
-import {
-  FaSpotify,
-  FaTiktok,
-  FaInstagram,
-  FaApple,
-  FaFacebook,
-} from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
+// components
 import ArtistModal from "./ArtistModal";
+
+// framer motion
+import { motion, useAnimation } from "framer-motion";
 
 const ArtistCard = () => {
   const [showModal, setShowModal] = useState(false);

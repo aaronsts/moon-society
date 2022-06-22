@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-
 import Image from "next/image";
 
+// carousel
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
 import "swiper/css/bundle";
+
+// framer motion
+import { motion, useAnimation } from "framer-motion";
 
 // icons
 import {
@@ -17,10 +19,11 @@ import {
 } from "react-icons/fa";
 import { GoMail } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
-
 import { IconContext } from "react-icons/lib";
 
-const ArtistModal = ({ setShowModal }) => {
+const ArtistModal = ({ modal, setShowModal }) => {
+  const control = useAnimation();
+
   useEffect(() => {
     const close = (e) => {
       if (e.keyCode == 27) {
@@ -28,8 +31,18 @@ const ArtistModal = ({ setShowModal }) => {
       }
     };
     window.addEventListener("keydown", close);
+
+    if (modal) {
+      control.start("visible");
+    }
     return () => window.addEventListener("keydown", close);
-  }, []);
+  }, [control, modal, setShowModal]);
+
+  const modalVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
   return (
     <IconContext.Provider
       value={{
@@ -39,7 +52,12 @@ const ArtistModal = ({ setShowModal }) => {
       }}
     >
       <div className="transition-all display-none inset-0 z-40 fixed bg-primary-500/50 flex items-center justify-center">
-        <div className="flex bg-primary-400 min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative">
+        <motion.div
+          variants={modalVariant}
+          initial="hidden"
+          animate={control}
+          className="flex bg-primary-400 min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative"
+        >
           {/* Bio & Name */}
           <div className="w-1/2">
             <h2 className="border-b border-secondary-200 w-fit pr-8 lg:pr-16">
@@ -79,7 +97,7 @@ const ArtistModal = ({ setShowModal }) => {
               navigation
               pagination={{ clickable: true }}
               onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSwiper={(swiper) => console.log(swiper)}
               className="text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
             >
               <SwiperSlide>
@@ -107,7 +125,7 @@ const ArtistModal = ({ setShowModal }) => {
             className="hover:text-secondary-300 absolute right-[-20px] top-[-20px] shadow text-primary-100 cursor-pointer"
             onClick={() => setShowModal(false)}
           />
-        </div>
+        </motion.div>
       </div>
     </IconContext.Provider>
   );
