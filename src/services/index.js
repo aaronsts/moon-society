@@ -19,3 +19,30 @@ export const getServices = async () => {
 
   return result.services;
 };
+
+export const getAssociates = async () => {
+  const query = gql`
+    query getAssociates {
+      associates {
+        name
+        bio
+        spotifyArtistProfile
+        spotifyTrackLink
+        instagram
+        facebook
+        appleMusic
+        tikTok
+        pictures {
+          url
+        }
+        profilePicture {
+          url
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.associates;
+};

@@ -8,3 +8,6 @@ export { default as Cursor } from "./Cursor";
 export { default as ArtistModal } from "./ArtistModal";
 export { default as Services } from "./Services";
 export { default as ServiceCard } from "./ServiceCard";
+export { default as Associates } from "./Associates";
+export { default as AssociateCard } from "./AssociateCard";
+export { default as AssociateModal } from "./AssociateModal";

@@ -5,6 +5,7 @@ import {
   StyleGuide,
   Cursor,
   Services,
+  Associates,
 } from "../components";
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
       <Header />
       <Banner />
       <Artists />
-      <Services />
+      <Associates />
+      {/* <Services /> */}
     </>
   );
 }
