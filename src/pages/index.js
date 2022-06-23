@@ -6,6 +6,8 @@ import {
   Cursor,
   Services,
   Associates,
+  About,
+  Navbar,
 } from "../components";
 
 export default function Home() {
@@ -16,6 +18,7 @@ export default function Home() {
       <Banner />
       <Artists />
       <Associates />
+      <About />
       {/* <Services /> */}
     </>
   );

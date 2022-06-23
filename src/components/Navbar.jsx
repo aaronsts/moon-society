@@ -11,9 +11,8 @@ const Navbar = () => {
   };
   return (
     <IconContext.Provider value={iconStyle}>
-      <div className="flex items-center -ml-12">
-        <HiOutlineMenu />
-      </div>
+      <HiOutlineMenu />
+      <div className=""></div>
     </IconContext.Provider>
   );
 };

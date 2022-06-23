@@ -21,13 +21,25 @@ import { GoMail } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
 
-const ArtistModal = ({ modal, setShowModal }) => {
+const ArtistModal = ({ modal, setShowModal, ...artist }) => {
+  // animation
   const control = useAnimation();
+  const modalVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
+  // close modal
+  const handleClick = () => {
+    setShowModal(false);
+    document.body.style.overflow = "unset";
+  };
 
   useEffect(() => {
     const close = (e) => {
       if (e.keyCode == 27) {
         setShowModal(false);
+        document.body.style.overflow = "unset";
       }
     };
     window.addEventListener("keydown", close);
@@ -37,11 +49,10 @@ const ArtistModal = ({ modal, setShowModal }) => {
     }
     return () => window.addEventListener("keydown", close);
   }, [control, modal, setShowModal]);
-
-  const modalVariant = {
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-    hidden: { opacity: 0, scale: 0 },
-  };
+  const spotifyTrack = undefined;
+  if (artist.spotifyTrackLink) {
+    spotifyTrack = new URL(artist.spotifyTrackLink);
+  }
 
   return (
     <IconContext.Provider
@@ -56,40 +67,37 @@ const ArtistModal = ({ modal, setShowModal }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex bg-primary-400 min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative"
+          className="flex bg-primary-400 max-h-screen min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative"
         >
           {/* Bio & Name */}
           <div className="w-1/2">
             <h2 className="border-b border-secondary-200 w-fit pr-8 lg:pr-16">
-              Vowed
+              {artist.name}
             </h2>
-            <p>
-              Originating from the outskirts of Paris, VOWED is a 24 year old
-              producer and DJ. His passion for music stems from a young age and
-              has been nourished by various mind-opening travels around the
-              globe. With a number of releases on influential labels such as
-              Deep Universe, Chill Your Mind, Mixmash or Panther's Groove to
-              mention a few, the French artist landed on Confession Label in
-              2020, with a stellar remix of Tchami's Ghosts. VOWED has kicked
-              off 2021 with an array of strong collaborations and releases which
-              have seen him explore new facets of melodic House Music. With
-              features including the likes of EDM.com, EARMILK & Tasty Network,
-              VOWED has been identified as an artist to keep an eye on in the
-              coming years.
-            </p>
+            <p className="h-96 overflow-y-scroll">{artist.bio}</p>
             {/* Links */}
-            <div className="flex gap-4 my-4">
-              <a href="http://spotify.com" target="_blank" rel="noreferrer">
+            <div className="flex items-center gap-4 my-4 h-20 border-t border-secondary-200 w-4/5">
+              <a href={artist.spotify} target="_blank" rel="noreferrer">
                 <FaSpotify />
               </a>
-              <FaApple />
-              <FaTiktok />
-              <FaInstagram />
-              <FaFacebook />
-              <GoMail />
+              <a href={artist.appleMusic} target="_blank" rel="noreferrer">
+                <FaApple />
+              </a>
+              <a href={artist.tikTok} target="_blank" rel="noreferrer">
+                <FaTiktok />
+              </a>
+              <a href={artist.instagram} target="_blank" rel="noreferrer">
+                <FaInstagram />
+              </a>
+              <a href={artist.facebook} target="_blank" rel="noreferrer">
+                <FaFacebook />
+              </a>
+              <a href="mailto:gust@moonsociety.be">
+                <GoMail />
+              </a>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 flex flex-col">
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               spaceBetween={50}
@@ -100,30 +108,31 @@ const ArtistModal = ({ modal, setShowModal }) => {
               // onSwiper={(swiper) => console.log(swiper)}
               className="text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
             >
-              <SwiperSlide>
-                <Image
-                  src={"/images/profilePicture.jpg"}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="top"
-                  alt="something useful"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  src={"/images/profilePicture.jpg"}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="top"
-                  alt="something useful"
-                />
-              </SwiperSlide>
+              {artist.pictures.map((picture, index) => (
+                <SwiperSlide key={index}>
+                  <Image
+                    src={picture.url}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="top"
+                    alt="something useful"
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
+            {artist.spotifyTrackLink && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `<iframe class="rounded shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
+                }}
+                className="my-4 w-4/5 mx-auto"
+              ></div>
+            )}
           </div>
           <AiFillCloseCircle
             size="2.5rem"
             className="hover:text-secondary-300 absolute right-[-20px] top-[-20px] shadow text-primary-100 cursor-pointer"
-            onClick={() => setShowModal(false)}
+            onClick={handleClick}
           />
         </motion.div>
       </div>

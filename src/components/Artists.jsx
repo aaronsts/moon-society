@@ -16,9 +16,9 @@ const Artists = () => {
       <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
         <h2>Artists</h2>
         <div className="flex gap-8">
-          {artists.map((artist, index) => {
-            <ArtistCard key={index} {...artist} />;
-          })}
+          {artists.map((artist, index) => (
+            <ArtistCard key={index} {...artist} />
+          ))}
         </div>
       </div>
     </div>

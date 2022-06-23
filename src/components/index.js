@@ -1,13 +1,13 @@
 export { default as StyleGuide } from "./StyleGuide";
 export { default as Header } from "./Header";
-export { default as Navbar } from "./Navbar";
 export { default as Banner } from "./Banner";
 export { default as Artists } from "./Artists";
 export { default as ArtistCard } from "./ArtistCard";
-export { default as Cursor } from "./Cursor";
 export { default as ArtistModal } from "./ArtistModal";
+export { default as Cursor } from "./Cursor";
 export { default as Services } from "./Services";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as Associates } from "./Associates";
 export { default as AssociateCard } from "./AssociateCard";
 export { default as AssociateModal } from "./AssociateModal";
+export { default as About } from "./About";

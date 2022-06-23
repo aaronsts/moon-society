@@ -8,6 +8,10 @@ module.exports = {
       sans: ["Montserrat"],
     },
     extend: {
+      grayscale: {
+        50: "50%",
+        75: "75%",
+      },
       colors: {
         "primary-100": "#F2F3F9",
         "primary-200": "#918CBA",
