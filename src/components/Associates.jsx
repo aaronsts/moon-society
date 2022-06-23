@@ -4,7 +4,7 @@ import AssociateCard from "./AssociateCard";
 // graphcms
 import { getAssociates } from "../services";
 
-const Artists = () => {
+const Associates = () => {
   const [associates, setAssociates] = useState([]);
 
   useEffect(() => {
@@ -19,15 +19,7 @@ const Artists = () => {
         <h2>Associates</h2>
         <div className="flex gap-8">
           {associates.map((associate, index) => (
-            <AssociateCard
-              key={index}
-              name={associate.name}
-              bio={associate.bio}
-              profilePicture={associate.profilePicture.url}
-              pictures={associate.pictures}
-              spotify={associate.spotifyArtistProfile}
-              spotifyTrack={associate.spotifyTrack}
-            />
+            <AssociateCard key={index} {...associate} />
           ))}
         </div>
       </div>
@@ -35,4 +27,4 @@ const Artists = () => {
   );
 };
 
-export default Artists;
+export default Associates;

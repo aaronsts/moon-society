@@ -5,22 +5,23 @@ import { useState, useEffect } from "react";
 import ArtistModal from "./ArtistModal";
 import AssociateModal from "./AssociateModal";
 
-const AssociateCard = ({ name, bio, profilePicture, pictures, spotify }) => {
+const AssociateCard = ({ name, profilePicture, ...associate }) => {
   const [showModal, setShowModal] = useState(false);
-
+  // console.log(profilePicture);
   return (
     <>
       <button
         type="button"
         onClick={() => {
           setShowModal(true);
+          document.body.style.overflow = "hidden";
         }}
       >
         <div className=" group flex flex-col items-center">
           <div className="relative h-72 w-72 rounded bg-cover overflow-hidden mb-4">
             <div className="transition-all duration-300 h-72 w-72 bg-gradient-to-t translate-y-full group-hover:translate-y-0 from-secondary-200/60 to-secondary-200/0 z-20 absolute"></div>
             <Image
-              src={profilePicture}
+              src={profilePicture.url}
               layout="fill"
               objectPosition="center"
               objectFit="cover"
@@ -37,10 +38,8 @@ const AssociateCard = ({ name, bio, profilePicture, pictures, spotify }) => {
         <AssociateModal
           modal={showModal}
           setShowModal={setShowModal}
+          {...associate}
           name={name}
-          bio={bio}
-          pictures={pictures}
-          spotify={spotify}
         />
       )}
     </>

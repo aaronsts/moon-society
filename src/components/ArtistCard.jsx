@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 // components
 import ArtistModal from "./ArtistModal";
 
-// framer motion
-import { motion, useAnimation } from "framer-motion";
-
-const ArtistCard = () => {
+const ArtistCard = ({ ...artist }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -31,7 +28,7 @@ const ArtistCard = () => {
             />
           </div>
           <h4 className="transition-transform duration-300 uppercase group-hover:-translate-y-14 z-30">
-            Vowed
+            {artist.name}
           </h4>
         </div>
       </button>
