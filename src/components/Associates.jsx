@@ -14,7 +14,7 @@ const Associates = () => {
   // console.log(associates[0].spotify);
 
   return (
-    <div className="bg-primary-400 scroll-mt-24" id="associate">
+    <div className=" scroll-mt-24" id="associate">
       <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
         <h2>Associates</h2>
         <div className="flex gap-8">

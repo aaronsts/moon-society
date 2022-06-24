@@ -12,7 +12,7 @@ const Artists = () => {
   }, []);
 
   return (
-    <div className="bg-primary-400 scroll-mt-24" id="artist">
+    <div className=" scroll-mt-24" id="artist">
       <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
         <h2>Artists</h2>
         <div className="flex flex-wrap justify-center gap-8">

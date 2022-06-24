@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-primary-400">
+    <div className="scroll-mt-24" id="about">
       <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
         <h2>About</h2>
         <p>

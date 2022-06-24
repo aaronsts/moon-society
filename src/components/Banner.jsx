@@ -15,7 +15,7 @@ const imageVariant = {
 
 const Banner = () => {
   return (
-    <div className="bg-gradient-to-t from-primary-400 to-primary-500">
+    <div className="">
       <div className="container mx-auto h-[calc(100vh-80px)] flex items-center flex-col md:flex-row justify-between">
         <motion.div
           variants={textVariant}

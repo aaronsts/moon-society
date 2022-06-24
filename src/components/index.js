@@ -11,3 +11,5 @@ export { default as Associates } from "./Associates";
 export { default as AssociateCard } from "./AssociateCard";
 export { default as AssociateModal } from "./AssociateModal";
 export { default as About } from "./About";
+export { default as Footer } from "./Footer";
+export { default as Socials } from "./Socials";

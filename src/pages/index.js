@@ -8,6 +8,7 @@ import {
   Associates,
   About,
   Navbar,
+  Footer,
 } from "../components";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Artists />
       <Associates />
       <About />
+      <Footer />
       {/* <Services /> */}
     </>
   );

@@ -15,7 +15,7 @@ const Services = () => {
 
   return (
     <ParallaxProvider>
-      <div className="bg-primary-400 scroll-mt-24" id="services">
+      <div className=" scroll-mt-24" id="services">
         <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-left">
           <h2 className="mx-auto mb-16">Services</h2>
 
