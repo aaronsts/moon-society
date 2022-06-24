@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  /* cursor: none; */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
     @apply text-7xl font-black text-primary-100 leading-tight mb-4 uppercase
   }
   h2 {
-    @apply text-5xl font-bold text-primary-100 leading-tight mb-4
+    @apply text-5xl font-bold text-primary-100 leading-tight mb-8
   }
   h3 {
     @apply text-4xl font-bold text-primary-100 leading-tight mb-4

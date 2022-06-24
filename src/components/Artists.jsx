@@ -10,12 +10,12 @@ const Artists = () => {
   useEffect(() => {
     getArtists().then((newArtists) => setArtists(newArtists));
   }, []);
-  console.log(artists);
+
   return (
-    <div className="bg-primary-400">
+    <div className="bg-primary-400 scroll-mt-24" id="artist">
       <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
         <h2>Artists</h2>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {artists.map((artist, index) => (
             <ArtistCard key={index} {...artist} />
           ))}

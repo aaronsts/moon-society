@@ -7,9 +7,10 @@ const About = () => {
         <h2>About</h2>
         <p>
           Moon Society is a talent agency and management of various individuals
-          that use each other's expertise to further their own personal growth
-          within their respective industries. We offer ourselves as a tool for
-          creatives that want to expand their brand, business or idea.. The goal
+          that use each other&apos;s expertise to further their own personal
+          growth within their respective industries. We offer ourselves as a
+          tool for creatives that want to expand their brand, business or idea..
+          The goal
         </p>
         <p>
           of this company is not to succeed as one entity but more so succeed as
@@ -24,9 +25,9 @@ const About = () => {
           specialize in consulting creative projects and help them succeed or
           reach the goals set by the founders. Any back-end coding help
           necessary for the start of a project is also something we can do
-          in-house, alongside long term help maintaining that project’s needs.
-          We currently have members in Belgium, America, Sweden and France. Our
-          office is located in Antwerp, Belgium.
+          in-house, alongside long term help maintaining that project&apos;s
+          needs. We currently have members in Belgium, America, Sweden and
+          France. Our office is located in Antwerp, Belgium.
         </p>
       </div>
     </div>
