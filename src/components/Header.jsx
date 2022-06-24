@@ -25,18 +25,20 @@ const Header = () => {
       >
         <div
           className="flex
-   items-center justify-between container mx-auto"
+   items-center container mx-auto"
         >
-          <Image
-            src={"/images/logo_ms_letter_day.svg"}
-            width={"220px"}
-            height={"80px"}
-            alt="moon society logo"
-          />
+          <a href="#home" className="mx-auto">
+            <Image
+              src={"/images/logo_ms_letter_day.svg"}
+              width={"220px"}
+              height={"80px"}
+              alt="moon society logo"
+            />
+          </a>
           <RiMenu4Line
             className={`${
               showNav ? "hidden" : "text-gray-50"
-            } transition-all cursor-pointer z-[60]`}
+            } transition-all cursor-pointer z-[60] -ml-12`}
             onClick={toggleNav}
           />
           <RiCloseLine

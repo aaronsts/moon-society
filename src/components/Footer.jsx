@@ -8,11 +8,13 @@ const Footer = () => {
       <div className="container mx-auto py-8 flex justify-between items-center">
         <Socials />
         <div className="relative w-16 h-16">
-          <Image
-            src={"/images/logo_ms.svg"}
-            layout="fill"
-            alt="logo moon society with text"
-          />
+          <a href="#home">
+            <Image
+              src={"/images/logo_ms.svg"}
+              layout="fill"
+              alt="logo moon society with text"
+            />
+          </a>
         </div>
         <ul className="flex gap-8">
           <li>
