@@ -104,8 +104,6 @@ const ArtistModal = ({ modal, setShowModal, ...artist }) => {
               slidesPerView={1}
               navigation
               pagination={{ clickable: true }}
-              onSlideChange={() => console.log("slide change")}
-              // onSwiper={(swiper) => console.log(swiper)}
               className="text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
             >
               {artist.pictures.map((picture, index) => (

@@ -51,7 +51,6 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
   }, [control, modal, setShowModal]);
 
   const spotifyTrack = new URL(associate.spotifyTrackLink);
-  console.log(spotifyTrack.pathname);
 
   return (
     <IconContext.Provider
