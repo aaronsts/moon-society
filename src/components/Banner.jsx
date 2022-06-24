@@ -36,6 +36,7 @@ const Banner = () => {
           className="relative w-[720px] h-[720px]"
         >
           <Image
+            priority
             layout="fill"
             src={"/images/ms-banner.svg"}
             alt="moon society banner"
