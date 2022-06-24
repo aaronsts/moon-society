@@ -5,12 +5,11 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Montserrat"],
+      sans: ["Montserrat", "sans-serif"],
     },
     extend: {
       grayscale: {
         50: "50%",
-        75: "75%",
       },
       colors: {
         "primary-100": "#F2F3F9",
