@@ -1,8 +1,33 @@
 import React, { useState, useEffect } from "react";
 
+// animation
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 const ServiceCard = ({ name, desc, icon }) => {
+  const serviceControl = useAnimation();
+  const [serviceRef, inView] = useInView({
+    rootMargin: "50px",
+    threshold: 1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      serviceControl.start("visible");
+    } else {
+      serviceControl.start("hidden");
+    }
+  }, [inView, serviceControl]);
+
+  const serviceVariant = {
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0 },
+  };
   return (
-    <div className="flex items-center bg-red-300">
+    <div
+      ref={serviceRef}
+      className="container flex items-center w-screen h-[50vh]"
+    >
       <div className="flex flex-col items-center justify-center w-1/2">
         <object
           type="image/svg+xml"
@@ -11,9 +36,18 @@ const ServiceCard = ({ name, desc, icon }) => {
           height="196px"
           className="mb-4"
         />
-        <h3 className="text-center w-full">{name}</h3>
       </div>
-      <p className="w-1/2 float-right">{desc}</p>
+
+      <motion.div
+        id="stickyText"
+        variants={serviceVariant}
+        initial="hidden"
+        animate={serviceControl}
+        className="flex flex-col w-1/2 fixed top-1/2 -mt-32 right-0 pr-8 md:pr-16 lg:pr-32 xl:pr-48"
+      >
+        <h3 className="text-center w-full">{name}</h3>
+        <p className="h-56 ">{desc}</p>
+      </motion.div>
     </div>
   );
 };

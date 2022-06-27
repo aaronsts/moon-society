@@ -19,9 +19,9 @@ export default function Home() {
       <Banner />
       <Artists />
       <Associates />
+      <Services />
       <About />
       <Footer />
-      {/* <Services /> */}
     </>
   );
 }

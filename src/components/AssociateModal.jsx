@@ -50,7 +50,10 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
     return () => window.addEventListener("keydown", close);
   }, [control, modal, setShowModal]);
 
-  const spotifyTrack = new URL(associate.spotifyTrackLink);
+  const spotifyTrack = undefined;
+  if (associate.spotifyTrackLink) {
+    spotifyTrack = new URL(associate.spotifyTrackLink);
+  }
 
   return (
     <IconContext.Provider
@@ -65,38 +68,50 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex bg-primary-400 max-h-screen min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative"
+          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded shadow relative"
         >
           {/* Bio & Name */}
-          <div className="w-1/2">
-            <h2 className="border-b border-secondary-200 w-fit pr-8 lg:pr-16">
+          <div className="w-full md:h-full md:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
+            <h2 className="border-b border-secondary-200 w-fit px-4 md:px-0 md:pr-8 lg:pr-16">
               {name}
             </h2>
-            <p className="h-96 overflow-y-scroll">{associate.bio}</p>
+            <div className="h-52 md:h-auto overflow-y-scroll">
+              <p>{associate.bio}</p>
+            </div>
             {/* Links */}
-            <div className="flex items-center gap-4 my-4 h-20 border-t border-secondary-200 w-4/5">
-              <a
-                href={associate.spotifyArtistProfile}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaSpotify />
-              </a>
-              <a href={associate.appleMusic} target="_blank" rel="noreferrer">
-                <FaApple />
-              </a>
-              <a href={associate.tikTok} target="_blank" rel="noreferrer">
-                <FaTiktok />
-              </a>
-              <a href={associate.instagram} target="_blank" rel="noreferrer">
-                <FaInstagram />
-              </a>
-              <a href={associate.facebook} target="_blank" rel="noreferrer">
-                <FaFacebook />
-              </a>
+            <div className="flex items-center justify-center md:justify-start gap-4 mt-4 h-20 border-t border-secondary-200 w-full md:w-4/5">
+              {associate.spotifyArtistProfile && (
+                <a
+                  href={associate.spotifyArtistProfile}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaSpotify />
+                </a>
+              )}
+              {associate.appleMusic && (
+                <a href={associate.appleMusic} target="_blank" rel="noreferrer">
+                  <FaApple />
+                </a>
+              )}
+              {associate.tikTok && (
+                <a href={associate.tikTok} target="_blank" rel="noreferrer">
+                  <FaTiktok />
+                </a>
+              )}
+              {associate.instagram && (
+                <a href={associate.instagram} target="_blank" rel="noreferrer">
+                  <FaInstagram />
+                </a>
+              )}
+              {associate.facebook && (
+                <a href={associate.facebook} target="_blank" rel="noreferrer">
+                  <FaFacebook />
+                </a>
+              )}
             </div>
           </div>
-          <div className="w-1/2 flex flex-col">
+          <div className="flex h-full  w-full md:w-1/2 flex-col justify-between">
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               spaceBetween={50}
@@ -105,7 +120,7 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
               pagination={{ clickable: true }}
               onSlideChange={() => console.log("slide change")}
               // onSwiper={(swiper) => console.log(swiper)}
-              className="text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
+              className="hidden md:block text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
             >
               {associate.pictures.map((picture, index) => (
                 <SwiperSlide key={index}>
@@ -114,17 +129,19 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
-                    alt="something useful"
+                    alt={name}
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `<iframe class="rounded shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
-              }}
-              className="my-4 w-4/5 mx-auto"
-            ></div>
+            {spotifyTrack && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `<iframe class="rounded shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
+                }}
+                className="mt-4 w-full md:w-4/5 mx-auto"
+              ></div>
+            )}
           </div>
           <AiFillCloseCircle
             size="2.5rem"

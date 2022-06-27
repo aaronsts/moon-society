@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <IconContext.Provider value={iconStyle}>
       <nav
-        className={`sticky top-0 text-gray-50 w-screen backdrop-blur-sm bg-primary-500/80 z-50
+        className={`sticky top-0 h-20 text-gray-50 w-screen backdrop-blur-sm bg-primary-500/80 z-50
   `}
       >
         <div
@@ -71,6 +71,13 @@ const Header = () => {
                 <a href="#service">
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
                     Services
+                  </h3>
+                </a>
+              </li>
+              <li className=" mx-auto mb-8 ">
+                <a href="#about">
+                  <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
+                    About
                   </h3>
                 </a>
               </li>

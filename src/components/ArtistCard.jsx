@@ -13,6 +13,7 @@ const ArtistCard = ({ profilePicture, ...artist }) => {
         type="button"
         onClick={() => {
           setShowModal(true);
+          document.body.style.overflow = "hidden";
         }}
       >
         <div className=" group flex flex-col items-center z-20">

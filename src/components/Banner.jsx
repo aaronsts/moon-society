@@ -17,13 +17,13 @@ const Banner = () => {
   return (
     <div
       id="home"
-      className=" container mx-auto h-[calc(100vh-80px)] flex items-center flex-col md:flex-row justify-between"
+      className=" container mx-auto h-[calc(100vh-80px)] flex items-center flex-col-reverse md:flex-row md:justify-between"
     >
       <motion.div
         variants={textVariant}
         initial="hidden"
         animate="visible"
-        className="w-1/2"
+        className="w-full text-center md:text-left md:w-1/2"
       >
         <h1>
           The Moon <br /> is a friend <br /> for the lonesome <br /> to talk to
@@ -34,7 +34,7 @@ const Banner = () => {
         variants={imageVariant}
         initial="hidden"
         animate="visible"
-        className="relative w-[720px] h-[720px]"
+        className="relative w-96 h-96 lg:w-[500px] lg:h-[500px] 2xl:w-[720px] 2xl:h-[720px]"
       >
         <Image
           priority

@@ -67,44 +67,55 @@ const ArtistModal = ({ modal, setShowModal, ...artist }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex bg-primary-400 max-h-screen min-h-[50%] w-3/5 p-4 lg:p-8 rounded shadow relative"
+          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded shadow relative"
         >
           {/* Bio & Name */}
-          <div className="w-1/2">
-            <h2 className="border-b border-secondary-200 w-fit pr-8 lg:pr-16">
+          <div className="w-full md:h-full md:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
+            <h2 className="border-b border-secondary-200 w-fit px-4 md:px-0 md:pr-8 lg:pr-16">
               {artist.name}
             </h2>
-            <p className="h-96 overflow-y-scroll">{artist.bio}</p>
+            <div className="h-52 md:h-auto overflow-y-scroll">
+              <p>{artist.bio}</p>
+            </div>
             {/* Links */}
-            <div className="flex items-center gap-4 my-4 h-20 border-t border-secondary-200 w-4/5">
-              <a href={artist.spotify} target="_blank" rel="noreferrer">
-                <FaSpotify />
-              </a>
-              <a href={artist.appleMusic} target="_blank" rel="noreferrer">
-                <FaApple />
-              </a>
-              <a href={artist.tikTok} target="_blank" rel="noreferrer">
-                <FaTiktok />
-              </a>
-              <a href={artist.instagram} target="_blank" rel="noreferrer">
-                <FaInstagram />
-              </a>
-              <a href={artist.facebook} target="_blank" rel="noreferrer">
-                <FaFacebook />
-              </a>
-              <a href="mailto:gust@moonsociety.be">
-                <GoMail />
-              </a>
+            <div className="flex items-center justify-center md:justify-start gap-4 mt-4 h-20 border-t border-secondary-200 w-full md:w-4/5">
+              {artist.spotify && (
+                <a href={artist.spotify} target="_blank" rel="noreferrer">
+                  <FaSpotify />
+                </a>
+              )}
+              {artist.appleMusic && (
+                <a href={artist.appleMusic} target="_blank" rel="noreferrer">
+                  <FaApple />
+                </a>
+              )}
+              {artist.tikTok && (
+                <a href={artist.tikTok} target="_blank" rel="noreferrer">
+                  <FaTiktok />
+                </a>
+              )}
+              {artist.instagram && (
+                <a href={artist.instagram} target="_blank" rel="noreferrer">
+                  <FaInstagram />
+                </a>
+              )}
+              {artist.facebook && (
+                <a href={artist.facebook} target="_blank" rel="noreferrer">
+                  <FaFacebook />
+                </a>
+              )}
             </div>
           </div>
-          <div className="w-1/2 flex flex-col">
+          <div className="flex h-full  w-full md:w-1/2 flex-col justify-between">
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y]}
               spaceBetween={50}
               slidesPerView={1}
               navigation
               pagination={{ clickable: true }}
-              className="text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
+              onSlideChange={() => console.log("slide change")}
+              // onSwiper={(swiper) => console.log(swiper)}
+              className="hidden md:block text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
             >
               {artist.pictures.map((picture, index) => (
                 <SwiperSlide key={index}>
@@ -113,17 +124,17 @@ const ArtistModal = ({ modal, setShowModal, ...artist }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
-                    alt="something useful"
+                    alt={name}
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
-            {artist.spotifyTrackLink && (
+            {spotifyTrack && (
               <div
                 dangerouslySetInnerHTML={{
                   __html: `<iframe class="rounded shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
                 }}
-                className="my-4 w-4/5 mx-auto"
+                className="mt-4 w-full md:w-4/5 mx-auto"
               ></div>
             )}
           </div>
