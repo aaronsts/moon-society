@@ -5,9 +5,9 @@ import Socials from "./Socials";
 const Footer = () => {
   return (
     <div className="bg-primary-500 text-primary-100">
-      <div className="container mx-auto py-8 flex justify-between items-center">
+      <div className="container mx-auto py-8 flex flex-col md:flex-row justify-between items-center">
         <Socials />
-        <div className="relative w-16 h-16">
+        <div className="relative w-16 h-16 my-8 md:my-0">
           <a href="#home">
             <Image
               src={"/images/logo_ms.svg"}
