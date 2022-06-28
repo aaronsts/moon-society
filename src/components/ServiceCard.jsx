@@ -20,7 +20,7 @@ const ServiceCard = ({ name, desc, icon }) => {
   }, [inView, serviceControl]);
 
   const serviceVariant = {
-    visible: { opacity: 1, transition: { duration: 0.5 } },
+    visible: { opacity: 1, transition: { duration: 0.3 } },
     hidden: { opacity: 0 },
   };
   return (

@@ -17,7 +17,7 @@ const Banner = () => {
   return (
     <div
       id="home"
-      className=" container mx-auto h-[calc(100vh-80px)] flex items-center flex-col-reverse md:flex-row md:justify-between"
+      className=" container mx-auto h-[calc(100vh-80px)] flex items-center gap-8 flex-col justify-center md:flex-row md:justify-between"
     >
       <motion.div
         variants={textVariant}
@@ -41,7 +41,7 @@ const Banner = () => {
           layout="fill"
           src={"/images/ms-banner.svg"}
           alt="moon society banner"
-          objectFit="cover"
+          objectFit="contain"
           objectPosition="center"
         />
       </motion.div>

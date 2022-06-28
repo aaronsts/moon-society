@@ -2,24 +2,23 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="scroll-mt-24" id="about">
-      <div className="container mx-auto h-[calc(100vh-80px)] flex flex-col items-center">
+    <div className=" scroll-mt-24" id="about">
+      <div className="my-16 container mx-auto h-fit flex flex-col items-center">
         <h2>About</h2>
-        <p>
+        <p className="w-1/2">
           Moon Society is a talent agency and management of various individuals
           that use each other&apos;s expertise to further their own personal
           growth within their respective industries. We offer ourselves as a
           tool for creatives that want to expand their brand, business or idea..
-          The goal
         </p>
-        <p>
-          of this company is not to succeed as one entity but more so succeed as
-          a group where every member grows individually. We could be called, if
-          we had to be labeled, a corporate creative family. Our vision is to
-          allow for everyone within our structure to live from their craft and
-          pursue their own vision.
+        <p className="w-1/2">
+          The goal of this company is not to succeed as one entity but more so
+          succeed as a group where every member grows individually. We could be
+          called, if we had to be labeled, a corporate creative family. Our
+          vision is to allow for everyone within our structure to live from
+          their craft and pursue their own vision.
         </p>
-        <p>
+        <p className="w-1/2">
           We can provide you with any form of audio and visual content, fully
           finished and polished for the needs you see fit. Other than that we
           specialize in consulting creative projects and help them succeed or
