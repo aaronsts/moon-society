@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 // Icons
 import { IconContext } from "react-icons";
@@ -44,38 +43,41 @@ const Header = () => {
           <RiCloseLine
             className={`${
               showNav ? "text-gray-50" : "hidden"
-            }  cursor-pointer z-[60]`}
+            }  cursor-pointer z-[60] -ml-12`}
             onClick={toggleNav}
           />
           <div
             className={`${
               showNav ? "translate-x-0" : "translate-x-full"
-            } fixed inset-0 md:left-2/3 h-screen backdrop-blur-sm bg-primary-500/80 top-20 transition-all duration-300 ease-in-out`}
+            } fixed bottom-0 right-0  left-0 md:left-2/3 h-screen backdrop-blur-sm bg-primary-500/80 top-20 transition-all duration-300 ease-in-out`}
           >
             <ul className="flex flex-col wrapper text-gray-50 mt-32">
               <li className=" mx-auto mb-8 ">
-                <a href="#artist">
+                <a href="#artist" onClick={(showNav) => setShowNav(!showNav)}>
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
                     Artists
                   </h3>
                 </a>
               </li>
               <li className=" mx-auto mb-8 ">
-                <a href="#associate">
+                <a
+                  href="#associate"
+                  onClick={(showNav) => setShowNav(!showNav)}
+                >
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
                     Associates
                   </h3>
                 </a>
               </li>
               <li className=" mx-auto mb-8 ">
-                <a href="#service">
+                <a href="#service" onClick={(showNav) => setShowNav(!showNav)}>
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
                     Services
                   </h3>
                 </a>
               </li>
               <li className=" mx-auto mb-8 ">
-                <a href="#about">
+                <a href="#about" onClick={(showNav) => setShowNav(!showNav)}>
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300">
                     About
                   </h3>

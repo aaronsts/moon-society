@@ -15,7 +15,8 @@ export default function Home() {
   return (
     <>
       {/* <Cursor /> */}
-      <Header />
+      <Navbar />
+      {/* <Header /> */}
       <Banner />
       <Artists />
       <Associates />
