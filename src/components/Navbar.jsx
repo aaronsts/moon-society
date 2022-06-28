@@ -40,11 +40,11 @@ const Navbar = (props) => {
         variants={navContainer}
         initial="hidden"
         animate="show"
-        className={` fixed top-0 z-20 text-gray-50 w-screen flex flex-col transition-colors duration-500 
+        className={` fixed top-0 z-50 text-gray-50 w-screen flex flex-col transition-colors duration-500 
           
         `}
       >
-        <div className=" container mx-auto flex justify-between relative z-40 wrapper py-4">
+        <div className=" container mx-auto flex justify-between relative  wrapper py-4">
           <Link href="/" passHref>
             <a className="mx-auto" aria-label="Moon Society Logo">
               <Image
@@ -59,13 +59,13 @@ const Navbar = (props) => {
             onClick={handleClick}
             className={`${
               show ? "hidden" : "text-gray-50"
-            } cursor-pointer z-30`}
+            } cursor-pointer z-[60]`}
           />
           <RiCloseLine
             onClick={handleClick}
             className={`${
               show ? "text-gray-50" : "hidden"
-            } cursor-pointer z-30`}
+            } cursor-pointer z-[60]`}
           />
         </div>
         <div
@@ -81,11 +81,9 @@ const Navbar = (props) => {
                     setShow(false);
                   }}
                 >
-                  <a>
-                    <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
-                      Artists
-                    </h3>
-                  </a>
+                  <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
+                    Artists
+                  </h3>
                 </li>
               </a>
             </Link>
@@ -96,11 +94,9 @@ const Navbar = (props) => {
                     setShow(false);
                   }}
                 >
-                  <a>
-                    <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
-                      Associates
-                    </h3>
-                  </a>
+                  <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
+                    Associates
+                  </h3>
                 </li>
               </a>
             </Link>
@@ -111,11 +107,9 @@ const Navbar = (props) => {
                     setShow(false);
                   }}
                 >
-                  <a>
-                    <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
-                      Services
-                    </h3>
-                  </a>
+                  <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
+                    Services
+                  </h3>
                 </li>
               </a>
             </Link>
@@ -126,11 +120,9 @@ const Navbar = (props) => {
                     setShow(false);
                   }}
                 >
-                  <a>
-                    <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
-                      About
-                    </h3>
-                  </a>
+                  <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
+                    About
+                  </h3>
                 </li>
               </a>
             </Link>

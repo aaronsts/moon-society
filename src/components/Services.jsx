@@ -36,13 +36,13 @@ const Services = () => {
     >
       <div className=" mx-auto  min-h-[calc(100vh-80px)] flex flex-col items-left">
         <h2 className="mx-auto mb-16">Services</h2>
-        <div className=" container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-16 justify-center items-center">
+        <div className=" container mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 justify-center items-center">
           {services.map((service, index) => (
             <ServiceCard
               key={service.name}
               name={service.name}
               desc={service.description}
-              icon={service.iconField.url}
+              icon={service.iconField}
             />
           ))}
         </div>

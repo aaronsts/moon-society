@@ -1,39 +1,66 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+class Cursor extends React.Component {
+  constructor(props) {
+    super(props);
 
-const Cursor = () => {
-  const cursorRef = useRef(null);
-  const cursorOutlineRef = useRef(null);
-  useEffect(() => {
-    const cursorOffset = 6;
-    if (cursorRef.current == null || cursorRef == null) return;
-    if (cursorOutlineRef.current == null || cursorRef == null) return;
-    // chain movement of object to movement of cursor
-    document.addEventListener("mousemove", (e) => {
-      if (cursorRef.current == null) return;
-      if (cursorOutlineRef.current == null) return;
-      cursorRef.current.setAttribute(
-        "style",
-        "top: " +
-          (e.pageY - cursorOffset) +
-          "px; left: " +
-          (e.pageX - cursorOffset) +
-          "px;"
-      );
-      if (cursorOutlineRef.current == null) return;
-      cursorOutlineRef.current.setAttribute(
-        "style",
-        "top: " + (e.pageY - 8) + "px; left: " + (e.pageX - 8) + "px;"
-      );
+    this.state = {
+      mouseX: 0,
+      mouseY: 0,
+      trailingX: 0,
+      trailingY: 0,
+    };
+    this.cursor = React.createRef();
+    this.cursorTrailing = React.createRef();
+    this.animationFrame = null;
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousemove", this.onMouseMove);
+    this.moveCursor();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousemove", this.onMouseMove);
+    cancelAnimationFrame(this.animationFrame);
+  }
+
+  onMouseMove = (evt) => {
+    const { clientX, clientY } = evt;
+    this.setState({
+      mouseX: clientX,
+      mouseY: clientY,
     });
-    // add animation when clicking
-  }, []);
-  return (
-    <>
-      <div className="cursor-outline" ref={cursorOutlineRef}></div>
-      <div className="cursor" ref={cursorRef}></div>;
-    </>
-  );
-};
+  };
+
+  moveCursor = () => {
+    const { mouseX, mouseY, trailingX, trailingY } = this.state;
+    const diffX = mouseX - trailingX;
+    const diffY = mouseY - trailingY;
+    //  Number in expression is coeficient of the delay. 10 for example. You can play with it.
+    this.setState(
+      {
+        trailingX: trailingX + diffX / 10,
+        trailingY: trailingY + diffY / 10,
+      },
+      () => {
+        // Using refs and transform for better performance.
+        this.cursor.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        this.cursorTrailing.current.style.transform = `translate3d(${trailingX}px, ${trailingY}px, 0)`;
+        this.animationFrame = requestAnimationFrame(this.moveCursor);
+      }
+    );
+  };
+
+  render = () => {
+    return (
+      <div className="container">
+        <div className="cursors">
+          <div className="cursor" ref={this.cursor} />
+          <div className="cursor" ref={this.cursorTrailing} />
+        </div>
+      </div>
+    );
+  };
+}
 
 export default Cursor;

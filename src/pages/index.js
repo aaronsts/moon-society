@@ -14,7 +14,7 @@ import {
 export default function Home() {
   return (
     <>
-      {/* <Cursor /> */}
+      <Cursor />
       <Navbar />
       {/* <Header /> */}
       <Banner />
