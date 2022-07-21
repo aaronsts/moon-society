@@ -1,20 +1,17 @@
 import {
-  Artists,
-  Banner,
-  Header,
-  StyleGuide,
-  Services,
-  Associates,
-  About,
   Navbar,
+  Banner,
+  Services,
+  About,
   Footer,
+  Artists,
+  Associates,
 } from "../components";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      {/* <Header /> */}
       <Banner />
       <Artists />
       <Associates />

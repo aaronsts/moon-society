@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // components
-import ArtistModal from "./ArtistModal";
 import AssociateModal from "./AssociateModal";
 
 const AssociateCard = ({ name, profilePicture, ...associate }) => {

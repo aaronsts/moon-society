@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import ArtistCard from "./ArtistCard";
 
 // graphcms
-import { getArtists } from "../services";
+import { getArtists } from "../../services";
 
 // animation
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Controller } from "swiper";
 
 const Artists = () => {
   const [artists, setArtists] = useState([]);

@@ -6,7 +6,7 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // graphcms
-import { getAssociates } from "../services";
+import { getAssociates } from "../../services";
 import { Controller } from "swiper";
 
 const Associates = () => {
