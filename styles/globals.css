@@ -54,7 +54,7 @@ body {
   }
   
   p {
-    @apply text-sm md:text-base font-normal text-primary-100 leading-normal mb-8
+    @apply text-sm md:text-base font-light text-primary-100 leading-normal mb-8
   }
 
 }

@@ -3,7 +3,6 @@ import {
   Banner,
   Header,
   StyleGuide,
-  Cursor,
   Services,
   Associates,
   About,
@@ -14,7 +13,6 @@ import {
 export default function Home() {
   return (
     <>
-      <Cursor />
       <Navbar />
       {/* <Header /> */}
       <Banner />

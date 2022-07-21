@@ -11,6 +11,7 @@ export const getServices = async () => {
         iconField {
           url
         }
+        excerpt
       }
     }
   `;

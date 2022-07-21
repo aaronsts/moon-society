@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-// animation
 
-const ServiceCard = ({ name, desc, icon }) => {
+const ServiceCard = ({ counter, ...service }) => {
+  console.log(service);
   return (
-    <div className="w-32 h-32 m-16 mx-auto relative group flex flex-col items-center justify-center">
-      <div className="relative cursor-pointer w-32 h-32 ">
+    <div
+      className={` mx-auto container flex h-80 border-b border-primary-100 ${
+        counter % 2 == 0 ? "" : "flex-row-reverse"
+      }`}
+    >
+      <div className="w-1/2 flex flex-col justify-center items-center gap-4 cursor-pointer">
         <Image
-          layout="fill"
-          loader={({ width }) => icon.url}
-          src={icon.url}
-          alt={name}
+          className="cursor-pointer"
+          width={64}
+          height={64}
+          loader={({ width }) => service.iconField.url}
+          src={service.iconField.url}
+          alt={service.name}
         />
+        <div>
+          <h4 className="text-center">{service.name}</h4>
+        </div>
       </div>
-      <div className="transition-all cursor-default rounded backdrop-blur-sm p-8 bg-primary-200/50 flex-col w-[28rem] h-[28rem] absolute -top-[160px] -left-[160px] opacity-0 group-hover:opacity-100">
-        <h3 className="text-center">{name}</h3>
-        <p className="text-center">{desc}</p>
+      <div className="w-1/2 flex flex-col justify-center ">
+        <h5>{service.excerpt}</h5>
+        <p>{service.description}</p>
       </div>
     </div>
   );
