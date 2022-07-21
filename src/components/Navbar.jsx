@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 
+// hooks
+import useScroll from "../hooks/useScroll";
+
 // icons
 import { IconContext } from "react-icons";
 import { RiMenu4Line } from "react-icons/ri";
@@ -13,6 +16,9 @@ const Navbar = (props) => {
   // state
   const [show, setShow] = useState(false);
 
+  // scrolling behaviour
+  const scroll = useScroll();
+
   // eventHandlers
   const handleClick = () => {
     setShow(!show);
@@ -20,37 +26,49 @@ const Navbar = (props) => {
 
   // icon styling
   const value = {
-    size: "4rem",
+    size: "2.5rem",
   };
   const navContainer = {
     hidden: {
       y: -100,
+      transition: {
+        duration: 0.6,
+      },
     },
     show: {
       y: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.2,
       },
     },
   };
+
+  useEffect(() => {
+    // hide navbar on scrolldown
+  }, [scroll.data.scrollDown, scroll.data.y]);
 
   return (
     <IconContext.Provider value={value}>
       <motion.nav
         variants={navContainer}
         initial="hidden"
-        animate="show"
-        className={` fixed top-0 z-50 text-gray-50 w-screen flex flex-col transition-colors duration-500 
-          
-        `}
+        animate={
+          scroll.data.scrollDown && scroll.data.y > 150 ? "hidden" : "show"
+        }
+        className={`
+    fixed top-0 z-50 bg-primary-500/80 backdrop-blur-sm shadow text-gray-50 w-screen flex flex-col transition-colors duration-500 
+    
+    `}
       >
-        <div className=" container mx-auto flex justify-between relative  wrapper py-4">
+        <div
+          className={` container mx-auto flex justify-between relative items-center wrapper`}
+        >
           <Link href="/" passHref>
             <a className="mx-auto" aria-label="Moon Society Logo">
               <Image
-                src={"/images/logo_ms_letter_day.svg"}
-                width={"220px"}
-                height={"80px"}
+                src={"/images/logo_ms.svg"}
+                width={"176px"}
+                height={"64px"}
                 alt="moon society logo"
               />
             </a>

@@ -13,8 +13,8 @@ const Services = () => {
 
   // animation
   const serviceVariant = {
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   const serviceControl = useAnimation();
