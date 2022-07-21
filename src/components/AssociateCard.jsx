@@ -18,7 +18,7 @@ const AssociateCard = ({ name, profilePicture, ...associate }) => {
         }}
       >
         <div className=" group flex flex-col items-center">
-          <div className="relative h-72 w-72 rounded bg-cover overflow-hidden mb-4 bg-primary-300">
+          <div className="relative h-72 w-72 rounded-2xl bg-cover overflow-hidden mb-4 bg-primary-300">
             <div className="w-72 h-72 absolute z-20 bg-primary-300 mix-blend-soft-light"></div>
             <div className="transition-all duration-300 h-80 w-72 bg-gradient-to-t translate-y-full group-hover:translate-y-0 from-secondary-200/80 via-secondary-200/0 to-secondary-200/0 z-20 absolute"></div>
             <Image

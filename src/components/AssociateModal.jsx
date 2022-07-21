@@ -68,7 +68,7 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded shadow relative"
+          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded-2xl shadow relative"
         >
           {/* Bio & Name */}
           <div className="w-full md:h-full md:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
@@ -120,7 +120,7 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
               pagination={{ clickable: true }}
               onSlideChange={() => console.log("slide change")}
               // onSwiper={(swiper) => console.log(swiper)}
-              className="hidden md:block text-primary-100 relative h-full w-4/5 float-right shadow rounded overflow-hidden"
+              className="hidden md:block text-primary-100 relative h-full w-4/5 float-right shadow rounded-2xl overflow-hidden"
             >
               {associate.pictures.map((picture, index) => (
                 <SwiperSlide key={index}>
@@ -137,7 +137,7 @@ const AssociateModal = ({ modal, setShowModal, name, ...associate }) => {
             {spotifyTrack && (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: `<iframe class="rounded shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
+                  __html: `<iframe class="rounded-2xl shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
                 }}
                 className="mt-4 w-full md:w-4/5 mx-auto"
               ></div>
