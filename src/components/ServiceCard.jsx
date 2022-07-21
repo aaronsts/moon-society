@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // components
-import FormModal from "./form";
+import FormModal from "./form/FormModal";
 
 const ServiceCard = ({ counter, ...service }) => {
   // state
@@ -25,6 +25,12 @@ const ServiceCard = ({ counter, ...service }) => {
       cardControl.start("show");
     }
   }, [cardControl, inView]);
+
+  // open modal
+  const handleClick = () => {
+    setShowModal(true);
+    document.body.style.overflow = "hidden";
+  };
 
   return (
     <>
@@ -52,7 +58,10 @@ const ServiceCard = ({ counter, ...service }) => {
         </div>
         <div className=" w-full lg:w-1/2 lg:border-l lg:border-secondary-300 px-8 flex flex-col justify-center ">
           <p>{service.description}</p>
-          <button className="text-secondary-300 mb-0 cursor-pointer">
+          <button
+            className="text-secondary-300 mb-0 cursor-pointer"
+            onClick={handleClick}
+          >
             {service.excerpt}
           </button>
         </div>
