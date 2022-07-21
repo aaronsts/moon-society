@@ -2,6 +2,7 @@ import { useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
+import Form from "./Form";
 
 const FormModal = ({ modal, showModal, setShowModal }) => {
   // animation
@@ -40,6 +41,7 @@ const FormModal = ({ modal, showModal, setShowModal }) => {
         animate={control}
         className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded-2xl shadow relative"
       >
+        <Form />
         <AiFillCloseCircle
           size="2.5rem"
           className="hover:text-secondary-300 absolute right-[-20px] top-[-20px] shadow text-primary-100 cursor-pointer"
