@@ -39,9 +39,19 @@ const FormModal = ({ modal, showModal, setShowModal }) => {
         variants={modalVariant}
         initial="hidden"
         animate={control}
-        className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 rounded-2xl shadow relative"
+        className="flex flex-col md:flex-row bg-primary-400 h-fit w-4/5 md:w-3/5 p-4 lg:p-8 rounded-2xl shadow relative items-center gap-4"
       >
         <Form />
+        <div className="w-1/2">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+            ab repudiandae praesentium quaerat, rem vero sit earum corrupti,
+            ratione in sed porro recusandae nulla unde laudantium, nam
+            exercitationem maxime officia. Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Porro nulla provident rem voluptatum
+            iure sit harum enim laborum, sapiente sed!
+          </p>
+        </div>
         <AiFillCloseCircle
           size="2.5rem"
           className="hover:text-secondary-300 absolute right-[-20px] top-[-20px] shadow text-primary-100 cursor-pointer"

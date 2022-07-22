@@ -12,31 +12,10 @@ body {
   background-size: cover;
 }
 
-.cursor {
-  width: 12px;
-  height: 12px;
-  border-radius:  50%;
-  position: absolute;
-  z-index: 100;
-  background-color: #00E0AC;
-  pointer-events: none;
-}
-
-.cursor-outline {
-  width: 16px;
-  height: 16px;
-  border-radius:  50%;
-  position: absolute;
-  z-index: 100;
-  background-color: transparent;
-  border: 1px solid #00C899;
-  transition-duration: .3s;
-  transition-timing-function: ease-out;
-  pointer-events: none;
-}
-
-
 @layer base {
+  * {
+    @apply focus:outline-secondary-200 focus:outline-offset-1
+  }
   h1 {
     @apply text-5xl lg:text-7xl font-black text-primary-100 leading-tight mb-4 uppercase
   }
