@@ -13,7 +13,7 @@ body {
 }
 
 @layer base {
-  * {
+  input, textarea, select {
     @apply focus:outline-secondary-200 focus:outline-none focus:rounded-2xl
   }
   h1 {

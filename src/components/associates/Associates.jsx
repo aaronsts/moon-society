@@ -36,7 +36,7 @@ const Associates = () => {
       className="scroll-mt-24"
       id="associate"
     >
-      <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col items-center">
+      <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col justify-evenly items-center">
         <h2 className="mb-8">Associates</h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
           {associates.map((associate, index) => (

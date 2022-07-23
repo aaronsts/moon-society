@@ -62,7 +62,7 @@ const ServiceCard = ({ counter, services, ...service }) => {
         <div className=" w-full lg:w-1/2 lg:border-l lg:border-secondary-300 px-8 flex flex-col justify-center ">
           <p>{service.description}</p>
           <button
-            className="text-secondary-300 mb-0 cursor-pointer"
+            className="text-secondary-300 mb-0 cursor-pointer hover:border-b border-secondary-200 w-fit"
             onClick={handleClick}
           >
             {service.excerpt}

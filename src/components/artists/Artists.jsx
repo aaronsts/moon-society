@@ -35,8 +35,8 @@ const Artists = () => {
       initial="hidden"
       animate={artistControl}
     >
-      <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col items-center">
-        <h2 className="mb-8">Artists</h2>{" "}
+      <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col justify-evenly items-center">
+        <h2 className="mb-8">Artists</h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
           {artists.map((artist, index) => (
             <ArtistCard key={index} {...artist} />

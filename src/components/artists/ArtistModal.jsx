@@ -67,7 +67,7 @@ const ArtistModal = ({ modal, setShowModal, ...artist }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 -2xl shadow relative"
+          className="flex flex-col rounded-2xl md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-3/5 p-4 lg:p-8 -2xl shadow relative"
         >
           {/* Bio & Name */}
           <div className="w-full md:h-full md:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
