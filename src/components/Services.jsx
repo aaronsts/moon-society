@@ -13,16 +13,18 @@ const Services = () => {
 
   // animation
   const serviceVariant = {
-    visible: { opacity: 1 },
+    show: { opacity: 1 },
     hidden: { opacity: 0 },
   };
 
   const serviceControl = useAnimation();
+
   const [serviceRef, inView] = useInView();
+
   useEffect(() => {
     getServices().then((newServices) => setServices(newServices));
     if (inView) {
-      serviceControl.start("visible");
+      serviceControl.start("show");
     }
   }, [serviceControl, inView]);
   return (
@@ -38,7 +40,12 @@ const Services = () => {
         <h2 className="mx-auto mb-16">Services</h2>
         <div className="flex flex-col justify-center gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={service.name} {...service} counter={index} />
+            <ServiceCard
+              key={service.name}
+              {...service}
+              counter={index}
+              services={services}
+            />
           ))}
         </div>
       </div>

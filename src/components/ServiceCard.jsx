@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 // components
 import FormModal from "./form/FormModal";
 
-const ServiceCard = ({ counter, ...service }) => {
+const ServiceCard = ({ counter, services, ...service }) => {
   // state
   const [showModal, setShowModal] = useState(false);
 
@@ -19,7 +19,8 @@ const ServiceCard = ({ counter, ...service }) => {
 
   // start animation when in view
   const cardControl = useAnimation();
-  const [cardRef, inView] = useInView({ threshold: 1 });
+  const [cardRef, inView] = useInView({ threshold: 0.6 });
+  const [subject, setSubject] = useState("");
   useEffect(() => {
     if (inView) {
       cardControl.start("show");
@@ -28,6 +29,8 @@ const ServiceCard = ({ counter, ...service }) => {
 
   // open modal
   const handleClick = () => {
+    console.log("service.name", service.slug);
+    setSubject(service.slug);
     setShowModal(true);
     document.body.style.overflow = "hidden";
   };
@@ -39,8 +42,8 @@ const ServiceCard = ({ counter, ...service }) => {
         initial="hidden"
         animate={cardControl}
         variants={cardVariant}
-        className={` mx-auto container py-8 bg-primary-500/40 flex flex-col h-fit xl:h-80 rounded-2xl justify-center items-center shadow ${
-          counter % 2 == 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+        className={` mx-auto container py-8 bg-primary-500/40 flex h-fit xl:h-80 rounded-2xl justify-center items-center shadow ${
+          counter % 2 == 0 ? "flex-row" : "flex-row-reverse"
         }`}
       >
         <div className=" w-full lg:w-1/3 flex flex-col justify-center items-center gap-8 cursor-pointer">
@@ -66,7 +69,14 @@ const ServiceCard = ({ counter, ...service }) => {
           </button>
         </div>
       </motion.div>
-      {showModal && <FormModal modal={showModal} setShowModal={setShowModal} />}
+      {showModal && (
+        <FormModal
+          modal={showModal}
+          setShowModal={setShowModal}
+          subject={subject}
+          services={services}
+        />
+      )}
     </>
   );
 };

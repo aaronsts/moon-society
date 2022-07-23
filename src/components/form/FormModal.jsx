@@ -4,7 +4,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 import Form from "./Form";
 
-const FormModal = ({ modal, showModal, setShowModal }) => {
+const FormModal = ({ modal, setShowModal, subject, services }) => {
   // animation
   const control = useAnimation();
   const modalVariant = {
@@ -41,7 +41,7 @@ const FormModal = ({ modal, showModal, setShowModal }) => {
         animate={control}
         className="flex flex-col md:flex-row bg-primary-400 h-fit w-4/5 md:w-3/5 p-4 lg:p-8 rounded-2xl shadow relative items-center gap-4"
       >
-        <Form />
+        <Form subject={subject} services={services} />
         <div className="w-1/2">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore

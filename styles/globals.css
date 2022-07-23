@@ -14,7 +14,7 @@ body {
 
 @layer base {
   * {
-    @apply focus:outline-secondary-200 focus:outline-offset-1
+    @apply focus:outline-secondary-200 focus:outline-none focus:rounded-2xl
   }
   h1 {
     @apply text-5xl lg:text-7xl font-black text-primary-100 leading-tight mb-4 uppercase

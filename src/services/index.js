@@ -8,6 +8,7 @@ export const getServices = async () => {
       services {
         description
         name
+        slug
         iconField {
           url
         }

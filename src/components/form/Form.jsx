@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const Form = () => {
+const Form = ({ subject, services }) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => console.log(data);
+
+  useEffect(() => {
+    console.log("subject", subject);
+    setValue("subject", subject);
+  }, []);
+
   // form structure: subject, name, email, location, description
   return (
     <div className="flex flex-col w-1/2">
@@ -17,14 +25,13 @@ const Form = () => {
           {...register("subject", { required: true })}
           className="w-full rounded-2xl mb-4 px-4 py-2"
         >
-          <option value="branding">Branding</option>
-          <option value="content-creation">Content Creation</option>
-          <option value="music-production">Music Production</option>
-          <option value="music-management">Music Management</option>
-          <option value="online-marketing">Online Marketing</option>
-          <option value="associates">Associates</option>
-          <option value="coding">Coding</option>
-          <option value="co-ownership">Brand Co-Ownership</option>
+          {services.map((service) => {
+            return (
+              <option key={service.slug} value={service.slug}>
+                {service.name}
+              </option>
+            );
+          })}
         </select>
         {errors.subject && (
           <span className="text-red-500 text-sm italic">
