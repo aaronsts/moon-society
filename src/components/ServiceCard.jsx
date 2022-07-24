@@ -51,7 +51,8 @@ const ServiceCard = ({ counter, services, ...service }) => {
             className="cursor-pointer"
             width={96}
             height={96}
-            loader={({ width }) => service.iconField.url}
+            loader={() => service.iconField.url}
+            unoptimized={true}
             src={service.iconField.url}
             alt={service.name}
           />
