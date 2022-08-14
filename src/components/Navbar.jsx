@@ -67,8 +67,8 @@ const Navbar = (props) => {
             <a className="mx-auto" aria-label="Moon Society Logo">
               <Image
                 src={"/images/logo_ms.svg"}
-                width={"176px"}
-                height={"64px"}
+                width="176px"
+                height="64px"
                 alt="moon society logo"
               />
             </a>
@@ -92,9 +92,9 @@ const Navbar = (props) => {
           } fixed top-0 bottom-0 right-0 z-30 left-0 md:left-2/3 bg-primary-500/80 transition-all duration-300 ease-in-out`}
         >
           <ul className="flex flex-col text-gray-50 mt-48">
-            <Link href="#artist" passHref>
-              <a>
-                <li
+            <li>
+              <Link href="#artist" passHref>
+                <a
                   onClick={() => {
                     setShow(false);
                   }}
@@ -102,12 +102,12 @@ const Navbar = (props) => {
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
                     Artists
                   </h3>
-                </li>
-              </a>
-            </Link>
-            <Link href="#associate" passHref>
-              <a>
-                <li
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="#associate" passHref>
+                <a
                   onClick={() => {
                     setShow(false);
                   }}
@@ -115,12 +115,12 @@ const Navbar = (props) => {
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
                     Associates
                   </h3>
-                </li>
-              </a>
-            </Link>
-            <Link href="#service" passHref>
-              <a>
-                <li
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="#service" passHref>
+                <a
                   onClick={() => {
                     setShow(false);
                   }}
@@ -128,12 +128,12 @@ const Navbar = (props) => {
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
                     Services
                   </h3>
-                </li>
-              </a>
-            </Link>
-            <Link href="#about" passHref>
-              <a>
-                <li
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="#about" passHref>
+                <a
                   onClick={() => {
                     setShow(false);
                   }}
@@ -141,9 +141,9 @@ const Navbar = (props) => {
                   <h3 className="transition-all duration-500 text-primary-100 hover:text-secondary-300 text-center mb-8">
                     About
                   </h3>
-                </li>
-              </a>
-            </Link>
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       </motion.nav>

@@ -124,7 +124,9 @@ const ArtistModal = ({ modal, setShowModal, ...artist }) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
-                    alt={name}
+                    quality={60}
+                    sizes="50vw"
+                    alt={picture.name}
                   />
                 </SwiperSlide>
               ))}

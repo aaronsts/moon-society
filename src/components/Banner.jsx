@@ -28,7 +28,7 @@ const Banner = () => {
         <h1>
           The Moon <br /> is a friend <br /> for the lonesome <br /> to talk to
         </h1>
-        <h5 className="uppercase italic">- Carl Sandburg</h5>
+        <h2 className="uppercase italic h5">- Carl Sandburg</h2>
       </motion.div>
       <motion.div
         variants={imageVariant}
@@ -37,7 +37,7 @@ const Banner = () => {
         className="relative w-96 h-96 lg:w-[500px] lg:h-[500px] 2xl:w-[720px] 2xl:h-[720px]"
       >
         <Image
-          priority
+          priority={true}
           layout="fill"
           src={"/images/ms-banner.svg"}
           alt="moon society banner"
