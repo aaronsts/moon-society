@@ -24,6 +24,7 @@ const AssociateCard = ({ name, profilePicture, ...associate }) => {
               src={profilePicture.url}
               layout="fill"
               objectFit="cover"
+              sizes="25vw"
               alt="profile picture"
               className="transition-all duration-300 z-10 absolute group-hover:scale-105 grayscale group-hover:grayscale-0"
             />

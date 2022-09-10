@@ -56,19 +56,19 @@ const Navbar = (props) => {
           scroll.data.scrollDown && scroll.data.y > 150 ? "hidden" : "show"
         }
         className={`
-    fixed top-0 z-50 bg-primary-500/80 backdrop-blur-sm shadow text-gray-50 w-screen flex flex-col transition-colors duration-500 
+    fixed top-0 z-50 bg-primary-500/80 shadow text-gray-50 w-screen flex flex-col transition-colors duration-500 
     
     `}
       >
-        <div
-          className={` container mx-auto flex justify-between relative items-center wrapper`}
-        >
+        <div className="container mx-auto flex justify-between relative items-center wrapper">
           <Link href="/" passHref>
-            <a className="mx-auto" aria-label="Moon Society Logo">
+            <a
+              className="mx-auto  relative w-44 h-16"
+              aria-label="Moon Society Logo"
+            >
               <Image
                 src={"/images/logo_ms.svg"}
-                width="176px"
-                height="64px"
+                layout="fill"
                 alt="moon society logo"
               />
             </a>
@@ -89,9 +89,9 @@ const Navbar = (props) => {
         <div
           className={`${
             show ? "translate-x-0" : "translate-x-full"
-          } fixed top-0 bottom-0 right-0 z-30 left-0 md:left-2/3 bg-primary-500/80 transition-all duration-300 ease-in-out`}
+          }  fixed h-[105vh] top-16 bottom-0 right-0 z-30 left-0 md:left-2/3 bg-primary-500/80 transition-all duration-300 ease-in-out`}
         >
-          <ul className="flex flex-col text-gray-50 mt-48">
+          <ul className="flex flex-col text-gray-50 mt-32">
             <li>
               <Link href="#artist" passHref>
                 <a

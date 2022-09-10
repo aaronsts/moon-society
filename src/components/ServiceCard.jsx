@@ -47,15 +47,16 @@ const ServiceCard = ({ counter, services, ...service }) => {
         }`}
       >
         <div className=" w-full lg:w-1/3 flex flex-col justify-center items-center gap-8 cursor-pointer">
-          <Image
-            className="cursor-pointer"
-            width={96}
-            height={96}
-            loader={() => service.iconField.url}
-            unoptimized={true}
-            src={service.iconField.url}
-            alt={service.name}
-          />
+          <div className="relative w-24 h-24">
+            <Image
+              className="cursor-pointer"
+              layout="fill"
+              loader={() => service.iconField.url}
+              unoptimized={true}
+              src={service.iconField.url}
+              alt={service.name}
+            />
+          </div>
           <div>
             <h4 className="text-center">{service.name}</h4>
           </div>

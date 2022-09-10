@@ -27,7 +27,7 @@ const ArtistCard = ({ profilePicture, ...artist }) => {
               objectPosition="top"
               objectFit="cover"
               alt="profile picture"
-              sizes="50vw"
+              sizes="25vw"
               className="transition-all duration-300 z-10 absolute group-hover:scale-105 grayscale group-hover:grayscale-0"
             />
           </div>
