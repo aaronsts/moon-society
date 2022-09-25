@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-import { motion, useAnimation } from "framer-motion";
+import { m, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // components
@@ -37,13 +37,13 @@ const ServiceCard = ({ counter, services, ...service }) => {
 
   return (
     <>
-      <motion.div
+      <m.div
         ref={cardRef}
         initial="hidden"
         animate={cardControl}
         variants={cardVariant}
-        className={` mx-auto container py-8 bg-primary-500/40 flex h-fit xl:h-80 rounded-2xl justify-center items-center shadow ${
-          counter % 2 == 0 ? "flex-row" : "flex-row-reverse"
+        className={` mx-auto flex-col container py-8 bg-primary-500/40 flex h-fit xl:h-80 rounded-2xl justify-center items-center shadow ${
+          counter % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
         }`}
       >
         <div className=" w-full lg:w-1/3 flex flex-col justify-center items-center gap-8 cursor-pointer">
@@ -70,7 +70,7 @@ const ServiceCard = ({ counter, services, ...service }) => {
             {service.excerpt}
           </button>
         </div>
-      </motion.div>
+      </m.div>
       {showModal && (
         <FormModal
           modal={showModal}

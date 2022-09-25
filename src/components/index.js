@@ -6,5 +6,5 @@ export { default as ServiceCard } from "./ServiceCard";
 export { default as About } from "./About";
 export { default as Footer } from "./Footer";
 export { default as Socials } from "./Socials";
-export { default as Artists } from "./artists/Artists";
-export { default as Associates } from "./associates/Associates";
+export { default as Artists } from "./Artists";
+export { default as Associates } from "./Associates";

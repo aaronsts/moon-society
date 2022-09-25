@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 // hooks
 import useScroll from "../hooks/useScroll";
@@ -49,7 +49,7 @@ const Navbar = (props) => {
 
   return (
     <IconContext.Provider value={value}>
-      <motion.nav
+      <m.nav
         variants={navContainer}
         initial="hidden"
         animate={
@@ -146,7 +146,7 @@ const Navbar = (props) => {
             </li>
           </ul>
         </div>
-      </motion.nav>
+      </m.nav>
     </IconContext.Provider>
   );
 };

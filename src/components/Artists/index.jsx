@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import ArtistCard from "./ArtistCard";
 
 // graphcms
 import { getArtists } from "../../services";
 
 // animation
-import { motion, useAnimation } from "framer-motion";
+import { m, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Card from "../Card";
 
 const Artists = () => {
   const [artists, setArtists] = useState([]);
@@ -27,7 +27,7 @@ const Artists = () => {
   }, [artistControl, inView]);
 
   return (
-    <motion.div
+    <m.div
       ref={artistRef}
       className=" scroll-mt-24"
       id="artist"
@@ -38,12 +38,12 @@ const Artists = () => {
       <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col justify-evenly items-center">
         <h2 className="mb-8">Artists</h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
-          {artists.map((artist, index) => (
-            <ArtistCard key={index} {...artist} />
+          {artists.map((person, index) => (
+            <Card key={index} {...person} />
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

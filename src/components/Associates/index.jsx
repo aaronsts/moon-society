@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AssociateCard from "./AssociateCard";
 
 // animation
 import { useAnimation, motion } from "framer-motion";
@@ -7,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 
 // graphcms
 import { getAssociates } from "../../services";
-import { Controller } from "swiper";
+import Card from "../Card";
 
 const Associates = () => {
   const [associates, setAssociates] = useState([]);
@@ -39,8 +38,8 @@ const Associates = () => {
       <div className="container mx-auto min-h-[calc(100vh-80px)] flex flex-col justify-evenly items-center">
         <h2 className="mb-8">Associates</h2>
         <div className="flex flex-wrap justify-center items-center gap-8">
-          {associates.map((associate, index) => (
-            <AssociateCard key={index} {...associate} />
+          {associates.map((person, index) => (
+            <Card key={index} {...person} />
           ))}
         </div>
       </div>

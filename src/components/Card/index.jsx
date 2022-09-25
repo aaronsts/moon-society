@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Modal from "../Modal";
 
-// components
-import ArtistModal from "./ArtistModal";
-
-const ArtistCard = ({ profilePicture, ...artist }) => {
+const Card = ({ profilePicture, ...person }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -32,19 +30,15 @@ const ArtistCard = ({ profilePicture, ...artist }) => {
             />
           </div>
           <h4 className="transition-transform duration-300 uppercase group-hover:-translate-y-14 z-30">
-            {artist.name}
+            {person.name}
           </h4>
         </div>
       </button>
       {showModal && (
-        <ArtistModal
-          modal={showModal}
-          setShowModal={setShowModal}
-          {...artist}
-        />
+        <Modal modal={showModal} setShowModal={setShowModal} {...person} />
       )}
     </>
   );
 };
 
-export default ArtistCard;
+export default Card;

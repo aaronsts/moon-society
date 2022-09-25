@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard";
 import { getServices } from "../services";
 
 // animation
-import { motion, useAnimation } from "framer-motion";
+import { m, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Services = () => {
@@ -28,7 +28,7 @@ const Services = () => {
     }
   }, [serviceControl, inView]);
   return (
-    <motion.div
+    <m.div
       ref={serviceRef}
       id="service"
       variants={serviceVariant}
@@ -49,7 +49,7 @@ const Services = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

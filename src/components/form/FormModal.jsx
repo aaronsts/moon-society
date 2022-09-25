@@ -1,7 +1,7 @@
 import { useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Form from "./Form";
 
 const FormModal = ({ modal, setShowModal, subject, services }) => {
@@ -35,7 +35,7 @@ const FormModal = ({ modal, setShowModal, subject, services }) => {
 
   return (
     <div className="transition-all display-none inset-0 z-40 fixed bg-primary-500/50 flex items-center justify-center">
-      <motion.div
+      <m.div
         variants={modalVariant}
         initial="hidden"
         animate={control}
@@ -55,7 +55,7 @@ const FormModal = ({ modal, setShowModal, subject, services }) => {
           className="absolute right-[-20px] top-[-20px] shadow cursor-pointer text-primary-200 hover:text-primary-300 hover:scale-110 transition-all"
           onClick={handleClick}
         />
-      </motion.div>
+      </m.div>
     </div>
   );
 };

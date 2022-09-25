@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const textVariant = {
   visible: { opacity: 1, x: 0, transition: { duration: 1 } },
@@ -19,7 +19,7 @@ const Banner = () => {
       id="home"
       className="container mx-auto h-screen flex items-center gap-8 flex-col justify-center md:flex-row md:justify-between"
     >
-      <motion.div
+      <m.div
         variants={textVariant}
         initial="hidden"
         animate="visible"
@@ -29,8 +29,8 @@ const Banner = () => {
           The Moon <br /> is a friend <br /> for the lonesome <br /> to talk to
         </h1>
         <h2 className="uppercase italic h5">- Carl Sandburg</h2>
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         variants={imageVariant}
         initial="hidden"
         animate="visible"
@@ -44,7 +44,7 @@ const Banner = () => {
           objectFit="contain"
           objectPosition="center"
         />
-      </motion.div>
+      </m.div>
     </div>
   );
 };
