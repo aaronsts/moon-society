@@ -63,10 +63,10 @@ const Modal = ({ modal, setShowModal, name, ...person }) => {
           variants={modalVariant}
           initial="hidden"
           animate={control}
-          className="flex flex-col md:flex-row bg-primary-400 h-[32rem] w-4/5 md:w-2/5 p-4 lg:p-8 rounded-2xl shadow relative"
+          className="flex flex-col lg:flex-row bg-primary-400 h-[32rem] w-4/5 lg:w-2/5 p-4 lg:p-8 rounded-2xl shadow relative"
         >
           {/* Bio & Name */}
-          <div className="w-full md:h-full md:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
+          <div className="w-full md:h-full lg:w-1/2 mt-4 md:mt-0 flex flex-col justify-between items-center md:items-start">
             <h2 className="border-b border-secondary-200 w-fit px-4 md:px-0 md:pr-8 lg:pr-16">
               {name}
             </h2>
@@ -106,15 +106,14 @@ const Modal = ({ modal, setShowModal, name, ...person }) => {
               )}
             </div>
           </div>
-          <div className="flex h-full  w-full md:w-1/2 flex-col justify-between">
+          <div className="flex h-full w-full lg:w-1/2 flex-col justify-between">
             <Carousel {...person} name={name} />
-
             {spotifyTrack && (
               <div
                 dangerouslySetInnerHTML={{
                   __html: `<iframe class="rounded-2xl shadow" src="https://open.spotify.com/embed${spotifyTrack.pathname}" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`,
                 }}
-                className="mt-4 w-full md:w-4/5 mx-auto"
+                className="w-full md:w-4/5 mx-auto"
               ></div>
             )}
           </div>

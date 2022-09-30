@@ -17,7 +17,7 @@ const Banner = () => {
   return (
     <div
       id="home"
-      className="container mx-auto h-screen flex items-center gap-8 flex-col justify-center md:flex-row md:justify-between"
+      className="container mt-16 md:mt-0 mx-auto h-screen flex items-center gap-8 flex-col justify-center md:flex-row md:justify-between"
     >
       <m.div
         variants={textVariant}
